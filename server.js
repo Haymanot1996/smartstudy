@@ -27,7 +27,7 @@ app.use('/api', apiRoutes);
 app.use('/api/auth', authRoutes);
 
 const server = app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is runnhing on http://localhost:${PORT}`);
 });
 //haymanotassefa2_db_user
 //DkdGOwIa75vPnR0t
