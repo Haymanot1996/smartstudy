@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartStudy - Student Management</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/layout.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/animations.css">
+
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/data.js"></script>
+    <script src="./scripts/render.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar glass-panel">
+            <div class="logo-area">
+                <i data-lucide="graduation-cap" class="logo-icon"></i>
+                <h1>SmartStudy</h1>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-target="dashboard">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-target="profile">
+                    <i data-lucide="user"></i>
+                    <span>Profile</span>
+                </button>
+                <button class="nav-item" data-target="schedule">
+                    <i data-lucide="calendar"></i>
+                    <span>Schedule</span>
+                </button>
+                <button class="nav-item" data-target="assignments">
+                    <i data-lucide="check-square"></i>
+                    <span>Assignments</span>
+                </button>
+                <button class="nav-item" data-target="notes">
+                    <i data-lucide="book-open"></i>
+                    <span>Notes</span>
+                </button>
+                <div class="nav-divider"></div>
+                <button class="nav-item" data-target="todo">
+                    <i data-lucide="list-todo"></i>
+                    <span>Planner</span>
+                </button>
+                <button class="nav-item" data-target="expenses">
+                    <i data-lucide="dollar-sign"></i>
+                    <span>Expenses</span>
+                </button>
+                <button class="nav-item" data-target="events">
+                    <i data-lucide="party-popper"></i>
+                    <span>Events</span>
+                </button>
+                <div class="nav-divider"></div>
+                <button class="nav-item" id="logout-btn" style="color: var(--danger); margin-top: auto;">
+                    <i data-lucide="log-out"></i>
+                    <span>Logout</span>
+                </button>
+            </nav>
+
+            <div class="user-mini-profile">
+                <div class="avatar-circle">S</div>
+                <div class="user-info">
+                    <span class="user-name">Student Name</span>
+                    <span class="user-dept">Computer Science</span>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="topbar glass-panel">
+                <div class="page-title">
+                    <h2 id="current-page-title">Dashboard</h2>
+                </div>
+                <div class="topbar-actions">
+                    <div class="search-bar">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+
+                    <div class="notification-wrapper hidden" style="display: none;"></div>
+
+                    <button class="icon-btn theme-toggle" id="theme-switcher">
+                        <i data-lucide="sun"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-scroll-area">
+                <section id="dashboard" class="view-section active fade-in">
+                    <div class="welcome-banner glass-card gradient-border">
+                        <div class="banner-text">
+                            <h2>Welcome back, <span class="student-name-display">Student</span>! 👋</h2>
+                            <p>You have <strong>3 assignments</strong> due this week and <strong>2 exams</strong> coming
+                                up.</p>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon color-2"><i data-lucide="clock"></i></div>
+                            <div class="stat-info">
+                                <h3>Attendance</h3>
+                                <p class="value">92%</p>
+                            </div>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon color-3"><i data-lucide="check-circle"></i></div>
+                            <div class="stat-info">
+                                <h3>Tasks Done</h3>
+                                <p class="value">12/15</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-grid-2-1">
+                        <div class="glass-card">
+                            <div class="card-header">
+                                <h3>Upcoming Classes</h3>
+                                <button class="btn-text">View All</button>
+                            </div>
+                            <div class="list-container" id="dashboard-schedule-list">
+                                <div class="empty-state">Loading schedule...</div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card">
+                            <div class="card-header">
+                                <h3>Quick Tasks</h3>
+                                <button class="icon-btn-small"><i data-lucide="plus"></i></button>
+                            </div>
+                            <div class="todo-mini-list" id="dashboard-todo-list">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="profile" class="view-section hidden">
+                    <div class="glass-card">
+                        <h2>Profile</h2>
+                    </div>
+                </section>
+                <section id="schedule" class="view-section hidden">
+                    <div class="glass-card">
+                        <h2>Schedule</h2>
+                    </div>
+                </section>
+                <section id="assignments" class="view-section hidden">
+                    <div class="glass-card">
+                        <h2>Assignments</h2>
+                    </div>
+                </section>
+                <section id="notes" class="view-section hidden">
+                    <div class="glass-card">
+                        <h2>Notes</h2>
+                    </div>
+                </section>
+                <section id="todo" class="view-section hidden">
+                    <div class="glass-card">
+                        <h2>Planner</h2>
+                    </div>
+                </section>
+                <section id="expenses" class="view-section hidden">
+                    <div class="glass-card">
+                        <h2>Expenses</h2>
+                    </div>
+                </section>
+                <section id="events" class="view-section hidden">
+                    <div class="glass-card">
+                        <h2>Events</h2>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

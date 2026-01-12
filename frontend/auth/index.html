@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartStudy - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/components.css">
+    <link rel="stylesheet" href="../styles/animations.css">
+    <style>
+        body {
+            background: var(--bg-color, #0f172a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 450px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .auth-card {
+            padding: 2.5rem;
+            text-align: center;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .auth-logo {
+            font-size: 2.5rem;
+            color: var(--primary-color, #6366f1);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .auth-card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .auth-card p {
+            color: var(--text-muted, #94a3b8);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color, #6366f1);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            background: var(--primary-gradient, linear-gradient(135deg, #6366f1 0%, #a855f7 100%));
+            color: white;
+            border: none;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+        }
+
+        .auth-switch {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted, #94a3b8);
+        }
+
+        .auth-switch a {
+            color: var(--primary-color, #6366f1);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-switch a:hover {
+            text-decoration: underline;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            min-height: 1.2rem;
+        }
+
+        /* Ambient background blobs */
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color, #6366f1);
+            filter: blur(80px);
+            opacity: 0.2;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .blob-1 {
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-2 {
+            bottom: -100px;
+            right: -100px;
+            background: #a855f7;
+        }
+    </style>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="dark-theme">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div id="login-section" class="auth-card glass-panel fade-in">
+            <div class="auth-logo"><i data-lucide="graduation-cap"></i></div>
+            <h2>Welcome Back</h2>
+            <p>Enter your credentials to access SmartStudy</p>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="login-email" placeholder="student@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="login-password" placeholder="••••••••" required>
+                </div>
+                <div id="login-error" class="error-message"></div>
+                <button type="submit" class="auth-btn">Sign In</button>
+            </form>
+
+            <div class="auth-switch">
+                Don't have an account? <a href="#" id="show-register">Register here</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-section" class="auth-card glass-panel fade-in hidden">
+            <div class="auth-logo"><i data-lucide="graduation-cap"></i></div>
+            <h2>Join SmartStudy</h2>
+            <p>Create your student account</p>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="reg-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Student ID</label>
+                    <input type="text" id="reg-id" placeholder="CS2025001" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="reg-email" placeholder="student@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="reg-password" placeholder="••••••••" required minlength="6">
+                </div>
+                <div id="reg-error" class="error-message"></div>
+                <button type="submit" class="auth-btn">Create Account</button>
+            </form>
+
+            <div class="auth-switch">
+                Already have an account? <a href="#" id="show-login">Sign In here</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./auth.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

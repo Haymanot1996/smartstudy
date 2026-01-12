@@ -1,0 +1,122 @@
+{
+    "profile": {
+        "name": "",
+        "id": "",
+        "dept": "",
+        "year": "",
+        "avatar": "",
+        "attendance": "95"
+    },
+    "notes": [],
+    "schedule": [
+        {
+            "day": "Monday",
+            "time": "09:00",
+            "course": "Data Structures",
+            "room": "Lab 3",
+            "type": "Lecture"
+        },
+        {
+            "day": "Monday",
+            "time": "11:00",
+            "course": "Database Systems",
+            "room": "Hall A",
+            "type": "Lecture"
+        },
+        {
+            "day": "Tuesday",
+            "time": "10:00",
+            "course": "Web Development",
+            "room": "Lab 1",
+            "type": "Lab"
+        },
+        {
+            "day": "Wednesday",
+            "time": "09:00",
+            "course": "Data Structures",
+            "room": "Lab 3",
+            "type": "Lab"
+        },
+        {
+            "day": "Thursday",
+            "time": "14:00",
+            "course": "Algorithms",
+            "room": "Hall B",
+            "type": "Lecture"
+        },
+        {
+            "day": "Friday",
+            "time": "10:00",
+            "course": "Soft Skills",
+            "room": "Sem Hall",
+            "type": "Seminar"
+        }
+    ],
+    "assignments": [
+        {
+            "id": 1,
+            "title": "Database Schema Design",
+            "course": "Database Systems",
+            "due": "2025-10-15",
+            "priority": "High",
+            "status": "Pending"
+        },
+        {
+            "id": 2,
+            "title": "React Component Lib",
+            "course": "Web Development",
+            "due": "2025-10-18",
+            "priority": "Medium",
+            "status": "Pending"
+        },
+        {
+            "id": 3,
+            "title": "Algorithm Analysis",
+            "course": "Algorithms",
+            "due": "2025-10-20",
+            "priority": "High",
+            "status": "Completed"
+        }
+    ],
+    "todos": [
+        {
+            "id": 1,
+            "text": "Buy reference books",
+            "done": false
+        },
+        {
+            "id": 2,
+            "text": "Register for Hackathon",
+            "done": true
+        },
+        {
+            "id": 3,
+            "text": "Call project partner",
+            "done": false
+        }
+    ],
+    "expenses": [
+        {
+            "id": 1,
+            "title": "Textbooks",
+            "amount": 150,
+            "date": "2025-10-01",
+            "category": "Books"
+        },
+        {
+            "id": 2,
+            "title": "Transport Pass",
+            "amount": 50,
+            "date": "2025-10-02",
+            "category": "Transport"
+        }
+    ],
+    "events": [
+        {
+            "id": 1,
+            "title": "Tech Symposium",
+            "date": "2025-11-05",
+            "location": "Auditorium"
+        }
+    ]
+}
