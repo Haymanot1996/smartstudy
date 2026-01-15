@@ -1,3 +1,8 @@
+## 🌐 Live Website
+This is the live version of the SmartStudy website, where users can access the platform and explore its features online.
+
+ 👉 https://smartstudy-5hts.onrender.com/
+
 # SmartStudy - Smart Student Life Manager
 
 ## Project Description
