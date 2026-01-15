@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
         loginError.textContent = '';
         loginError.style.color = ''; // Reset to default (red)
 
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Signing In...';
+        submitBtn.disabled = true;
+
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
 
@@ -46,9 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = '../index.html';
             } else {
                 loginError.textContent = data.error || 'Login failed';
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             }
         } catch (err) {
             loginError.textContent = 'Server error. Please try again.';
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         }
     });
 
@@ -56,6 +65,11 @@ document.addEventListener('DOMContentLoaded', () => {
     registerForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         regError.textContent = '';
+
+        const submitBtn = registerForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Creating Account...';
+        submitBtn.disabled = true;
 
         const name = document.getElementById('reg-name').value;
         const studentId = document.getElementById('reg-id').value;
@@ -79,11 +93,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Show success message in login error area (styled as success)
                 loginError.textContent = 'Registration successful! Please sign in.';
                 loginError.style.color = '#10b981'; // Green
+
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             } else {
                 regError.textContent = data.error || 'Registration failed';
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             }
         } catch (err) {
             regError.textContent = 'Server error. Please try again.';
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         }
     });
 });

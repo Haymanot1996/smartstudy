@@ -244,6 +244,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Save Note
         if (target.id === 'save-note-btn') {
+            const btn = target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
             const titleInput = document.getElementById('note-title');
             const contentInput = document.getElementById('note-content');
 
@@ -267,6 +272,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 section.innerHTML = Render.notes(DataStore.get());
                 lucide.createIcons();
             }
+            btn.textContent = originalText;
+            btn.disabled = false;
         }
 
         if (target.classList.contains('delete-note-btn')) {
@@ -280,6 +287,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Save Assignment
         if (target.id === 'save-assignment-btn') {
+            const btn = target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
             const titleInput = document.getElementById('assign-title');
             const courseInput = document.getElementById('assign-course');
             const dueInput = document.getElementById('assign-due');
@@ -310,6 +322,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 section.innerHTML = Render.assignments(DataStore.get());
                 lucide.createIcons();
             }
+            btn.textContent = originalText;
+            btn.disabled = false;
         }
 
         if (target.classList.contains('toggle-assignment-btn')) {
@@ -334,6 +348,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Save Expense
         if (target.id === 'save-expense-btn') {
+            const btn = target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
             const titleInput = document.getElementById('exp-title');
             const amountInput = document.getElementById('exp-amount');
             const catInput = document.getElementById('exp-cat');
@@ -361,6 +380,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 section.innerHTML = Render.expenses(DataStore.get());
                 lucide.createIcons();
             }
+            btn.textContent = originalText;
+            btn.disabled = false;
         }
 
         if (target.classList.contains('delete-expense-btn')) {
@@ -374,6 +395,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Save Event
         if (target.id === 'save-event-btn') {
+            const btn = target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
             const titleInput = document.getElementById('ev-title');
             const locInput = document.getElementById('ev-loc');
             const dateInput = document.getElementById('ev-date');
@@ -400,6 +426,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 section.innerHTML = Render.events(DataStore.get());
                 lucide.createIcons();
             }
+            btn.textContent = originalText;
+            btn.disabled = false;
         }
 
         if (target.classList.contains('delete-event-btn')) {
@@ -413,6 +441,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Save Schedule
         if (target.id === 'save-schedule-btn') {
+            const btn = target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Saving...';
+            btn.disabled = true;
+
             const courseInput = document.getElementById('sched-course');
             const dayInput = document.getElementById('sched-day');
             const timeInput = document.getElementById('sched-time');
@@ -441,6 +474,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 section.innerHTML = Render.schedule(DataStore.get());
                 lucide.createIcons();
             }
+            btn.textContent = originalText;
+            btn.disabled = false;
         }
 
         if (target.classList.contains('delete-schedule-btn')) {
