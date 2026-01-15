@@ -3,6 +3,11 @@ This is the live version of the SmartStudy website, where users can access the p
 
  👉 https://smartstudy-5hts.onrender.com/
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8c2a35b4aa8cadeb5d183ba935f25fc1e0ceb6f0
 # SmartStudy - Smart Student Life Manager
 
 ## Project Description
